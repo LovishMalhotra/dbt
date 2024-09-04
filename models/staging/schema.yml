@@ -1,0 +1,79 @@
+version: 2
+
+models:
+  
+    - name: stg_customer
+      description: record of customers cleaning by cust id.
+      columns:
+        - name: cust_id
+          description: Primary key
+          tests:
+            - unique
+            - not_null
+
+    - name: stg_orders
+      description: order done by customer.
+      columns:
+        - name: ord_id
+          description: Primary key
+          tests:
+            - unique
+            - not_null
+        - name: order_date
+          description: "Date the order was placed"
+          data_type: timestamp    
+
+    - name: stg_market
+      description:  market table.
+      columns:
+        - name: ord_id
+          description: Foriegn key
+          tests:
+            - unique
+            - not_null  
+
+        - name: prod_id
+          description: Foriegn key
+          tests:
+            - unique
+            - not_null          
+
+        - name: ship_id
+          description: Foriegn key
+          tests:
+            - unique
+            - not_null
+
+        - name: cust_id
+          description: Foriegn key
+          tests:
+            - unique
+            - not_null
+
+    - name: stg_product
+      description: cleaning product table
+      columns:
+        - name: prod_id
+          description: Primary key
+          tests:
+            - unique
+            - not_null
+    
+    - name: stg_shipping
+      description: shipping table cleaned by order id and ship id 
+      columns:
+        - name: ord_id
+          description: Foriegn key
+          tests:
+            - unique
+            - not_null
+
+        - name: ship_id
+          description: Primary key
+          tests:
+            - unique
+            - not_null
+
+        - name: ship_date
+          description: "Date the order was placed"
+          data_type: timestamp

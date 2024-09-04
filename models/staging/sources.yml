@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+    - name: Ecommerce
+      description: This is replica of snowflake database 
+      database: RAW
+      schema: ecommerce
+      tables:
+          - name: customer
+            description: record of customers.
+          - name: market
+            description: market table.
+          - name: orders
+            description: order done by customer.
+          - name: product
+            description: product available in ecommerce.
+          - name: shipping
+            description: shipping details table.
